@@ -5,13 +5,12 @@ import springbook.user.domain.User;
 import java.sql.*;
 
 public class UserDao {
-    private final ConnectionMaker connectionMaker;
+    private ConnectionMaker connectionMaker;
 
-    public UserDao(ConnectionMaker connectionMaker) {
+    public void setConnectionMaker(ConnectionMaker connectionMaker) {
         this.connectionMaker = connectionMaker;
     }
-
-
+    
     public void add(User user) throws ClassNotFoundException, SQLException {
         Connection c = connectionMaker.makeConnection();
 
